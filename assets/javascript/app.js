@@ -41,7 +41,7 @@ $(document).on('click', '.searchButton', function(){
 				image.addClass('searchImage');
 				searchDiv.append(p);
 				searchDiv.append(image);
-				$("#searches").append(searchDiv);
+				$("#searches").prepend(searchDiv);
 			}
 	});
 });
@@ -59,9 +59,11 @@ $(document).on('click', '.searchImage', function(){
 });
 
 $("#addSearch").on('click', function(){
-	var newSearch = $('input').eq(0).val();
+	event.preventDefault();
+	var newSearch = $('#search-input').val();
+	console.log(newSearch);
 	searchArray.push(newSearch);
 	populateButtons(searchArray, 'searchButton', '#buttonsArea');
-	return false;
+	
 
 });
